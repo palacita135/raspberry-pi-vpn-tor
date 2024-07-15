@@ -1,0 +1,13 @@
+sudo apt update
+sudo apt upgrade -y
+
+While typing out this command, there are a few details that you must replace with your own.
+
+<DEVICE>: This is the device name assigned to your Raspberry Pi’s Wi-Fi adapter. In the vast majority of cases, this should be “wlan0“.
+<SSID>: Replace this placeholder with the name you want broadcast by your access point. It is the ID that will be used by others when connecting to your hotspot.
+<PASSWORD>: The last value you must replace is the password that will be used to secure your Raspberry Pi’s Wi-Fi access point.
+
+sudo nmcli d wifi hotspot ifname <DEVICE> ssid <SSID> password <PASSWORD>
+
+nmcli con show
+nmcli dev wifi show-password
