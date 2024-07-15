@@ -1,0 +1,26 @@
+sudo apt update && sudo apt upgrade-y
+sudo apt install tor -y
+
+sudo nano /etc/tor/torrc
+add the following configurations just under the FAQ notice. These lines will configure TOR to run on port 9050 and port 53.
+Log notice file /var/log/tor/notices.log
+VirtualAddrNetwork 10.192.0.0/10
+AutomapHostsSuffixes .onion,.exit
+AutomapHostsOnResolve 1
+TransPort 9040
+TransListenAddress 192.168.220.1
+DNSPort 53
+DNSListenAddress 192.168.220.1
+
+sudo iptables -F
+sudo iptables -t nat -F
+
+sudo iptables -t nat -L
+sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
+sudo touch /var/log/tor/notices.log
+sudo chown debian-tor /var/log/tor/notices.log
+sudo chmod 644 /var/log/tor/notices.log
+ls -l /var/log/tor
+
+sudo service tor start
+sudo update-rc.d tor enable
