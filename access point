@@ -1,3 +1,5 @@
+https://pimylifeup.com/raspberry-pi-wireless-access-point/
+
 sudo apt update
 sudo apt upgrade -y
 sudo systemctl start NetworkManager
