@@ -1,5 +1,6 @@
 sudo apt update
 sudo apt upgrade -y
+sudo systemctl start NetworkManager
 
 While typing out this command, there are a few details that you must replace with your own.
 
